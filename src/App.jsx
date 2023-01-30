@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  //Variable for calcualting tip
+  //Variables for calcualting tip
   const [tip, setTip] = useState(0);
   const [tipPerPerson, setTipPerPerson] = useState((0.0).toFixed(2));
   const [totalTip, setTotalTip] = useState((0.0).toFixed(2));
@@ -17,7 +17,7 @@ function App() {
   //Colored alerts for people input
   const [peopleAlert, setPeopleAlert] = useState("hidden");
   const [peopleOutline, setPeopleOutline] = useState("#26C0AB");
-  const [PeopleBaseOutline, setPeopleBaseOutline] = useState("#F4FAFA");
+  const [peopleBaseOutline, setPeopleBaseOutline] = useState("#F4FAFA");
 
   //Colored alerts for tip input
   const [tipOutline, setTipOutline] = useState("#26C0AB");
@@ -31,7 +31,7 @@ function App() {
   }, [tip, bill, people]);
 
   return (
-    <div className="bg-[#C5E4E7] flex justify-center items-center flex-col pt-20 md:pt-0 h-[100vh] md:min-h-0 min-h-[900px]">
+    <div className="bg-[#C5E4E7] flex justify-center items-center flex-col pt-20 md:pt-0 h-[100vh] md:min-h-[500px] lg:min-h-0 min-h-[900px]">
       <img src="./src/assets/logo.svg" className="mb-12" />
       <div className="bg-white rounded-xl flex flex-col p-8 shadow-xl space-y-7 md:space-y-0 md:flex-row md:space-x-10">
         <div className="flex flex-col space-y-10 w-[300px]">
@@ -50,15 +50,15 @@ function App() {
               />
               <input
                 type="number"
-                className={`bg-[#F4FAFA] text-right text-[#00494D] h-full transition-all ease-in-out duration-75 w-full hover:outline-[${billOutline}] focus:outline-[${billOutline}] outline-[${billBaseOutline}] outline outline-1 rounded-md px-3 py-1 placeholder:text-[#7F9C9F] placeholder:text-[18px] text-[18px]`}
+                className={`bg-[#F4FAFA] text-right text-[#00494D] h-full transition-all ease-in-out duration-75 w-full hover:outline-[${billOutline}] focus:outline-[${billOutline}] outline-[${billBaseOutline}] outline-1 outline rounded-md px-3 py-1 placeholder:text-[#7F9C9F] placeholder:text-[18px] text-[18px]`}
                 placeholder="0"
                 value={bill === 0 ? "" : bill}
                 onChange={(e) => setBill(e.target.value)}
                 onBlur={() => {
                   if (bill == 0) {
                     setBillAlert("block");
-                    setBillOutline("#f16e6e");
-                    setBillBaseOutline("#f16e6e");
+                    setBillOutline("#F16E6E");
+                    setBillBaseOutline("#F16E6E");
                   }
                 }}
                 onFocus={() => {
@@ -93,7 +93,7 @@ function App() {
               <input
                 type="submit"
                 value="15%"
-                onClick={(e) => {
+                onClick={() => {
                   setTip(15);
                 }}
                 className="bg-[#00494D] px-6 py-2 text-center rounded-md text-white hover:bg-[#C5E4E7] hover:cursor-pointer hover:text-[#00494D] focus:bg-[#26C0AB] focus:text-[#00494D] transtion-all ease-int-out"
@@ -101,7 +101,7 @@ function App() {
               <input
                 type="submit"
                 value="20%"
-                onClick={(e) => {
+                onClick={() => {
                   setTip(20);
                 }}
                 className="bg-[#00494D] px-6 py-2 text-center rounded-md text-white hover:bg-[#C5E4E7] hover:cursor-pointer hover:text-[#00494D] focus:bg-[#26C0AB] focus:text-[#00494D] transtion-all ease-int-out"
@@ -109,7 +109,7 @@ function App() {
               <input
                 type="submit"
                 value="25%"
-                onClick={(e) => {
+                onClick={() => {
                   setTip(25);
                 }}
                 className="bg-[#00494D] px-6 py-2 text-center rounded-md text-white hover:bg-[#C5E4E7] hover:cursor-pointer hover:text-[#00494D] focus:bg-[#26C0AB] focus:text-[#00494D] transtion-all ease-int-out"
@@ -124,8 +124,8 @@ function App() {
                 }}
                 onBlur={() => {
                   if (tip == 0) {
-                    setTipOutline("#f16e6e");
-                    setTipBaseOutline("#f16e6e");
+                    setTipOutline("#F16E6E");
+                    setTipBaseOutline("#F16E6E");
                   }
                 }}
                 onFocus={() => {
@@ -152,15 +152,15 @@ function App() {
               />
               <input
                 type="number"
-                className={`peer bg-[#F4FAFA] text-right text-[18px] text-[#00494D] transition-all duration-75 h-full w-full hover:outline-[${peopleOutline}] focus:outline-[${peopleOutline}] outline-[${PeopleBaseOutline}] outline outline-1 rounded-md px-3 py-1 placeholder:text-[#7F9C9F] placeholder:text-[18px]`}
+                className={`peer bg-[#F4FAFA] text-right text-[18px] text-[#00494D] transition-all duration-75 h-full w-full hover:outline-[${peopleOutline}] focus:outline-[${peopleOutline}] outline-[${peopleBaseOutline}] outline outline-1 rounded-md px-3 py-1 placeholder:text-[#7F9C9F] placeholder:text-[18px]`}
                 placeholder="0"
                 value={people === 0 ? "" : people}
                 onChange={(e) => setPeople(e.target.value)}
                 onBlur={() => {
                   if (people == 0) {
                     setPeopleAlert("block");
-                    setPeopleOutline("#f16e6e");
-                    setPeopleBaseOutline("#f16e6e");
+                    setPeopleOutline("#F16E6E");
+                    setPeopleBaseOutline("#F16E6E");
                   }
                 }}
                 onFocus={() => {
