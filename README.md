@@ -35,6 +35,7 @@ All users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- Tailwind
 - [React](https://reactjs.org/)
 
 ### What I learned
