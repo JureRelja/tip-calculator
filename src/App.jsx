@@ -11,17 +11,20 @@ function App() {
 
   //Colored alerts for bill input
   const [billAlert, setBillAlert] = useState("hidden");
-  const [billOutline, setBillOutline] = useState("#26C0AB");
-  const [billBaseOutline, setBillBaseOutline] = useState("#F4FAFA");
+  const [billOutline, setBillOutline] = useState(
+    "hover:outline-[#26C0AB] focus:outline-[#26C0AB] outline-[#F4FAFA]"
+  );
 
   //Colored alerts for people input
   const [peopleAlert, setPeopleAlert] = useState("hidden");
-  const [peopleOutline, setPeopleOutline] = useState("#26C0AB");
-  const [peopleBaseOutline, setPeopleBaseOutline] = useState("#F4FAFA");
+  const [peopleOutline, setPeopleOutline] = useState(
+    "hover:outline-[#26C0AB] focus:outline-[#26C0AB] outline-[#F4FAFA]"
+  );
 
   //Colored alerts for tip input
-  const [tipOutline, setTipOutline] = useState("#26C0AB");
-  const [tipBaseOutline, setTipBaseOutline] = useState("#F4FAFA");
+  const [tipOutline, setTipOutline] = useState(
+    "hover:outline-[#26C0AB] focus:outline-[#26C0AB] outline-[#F4FAFA]"
+  );
 
   useEffect(() => {
     if (bill > 0 && people > 0) {
@@ -50,21 +53,21 @@ function App() {
               />
               <input
                 type="number"
-                className={`bg-[#F4FAFA] text-right text-[#00494D] h-full transition-all ease-in-out duration-75 w-full hover:outline-[${billOutline}] focus:outline-[${billOutline}] outline-[${billBaseOutline}] outline-1 outline rounded-md px-3 py-1 placeholder:text-[#7F9C9F] placeholder:text-[18px] text-[18px]`}
+                className={`bg-[#F4FAFA] text-right text-[#00494D] h-full transition-all ease-in-out duration-75 w-full  ${billOutline} outline-1 outline rounded-md px-3 py-1 placeholder:text-[#7F9C9F] placeholder:text-[18px] text-[18px]`}
                 placeholder="0"
                 value={bill === 0 ? "" : bill}
                 onChange={(e) => setBill(e.target.value)}
                 onBlur={() => {
                   if (bill == 0) {
                     setBillAlert("block");
-                    setBillOutline("#F16E6E");
-                    setBillBaseOutline("#F16E6E");
+                    setBillOutline("outline-[#F16E6E]");
                   }
                 }}
                 onFocus={() => {
                   setBillAlert("hidden");
-                  setBillOutline("#26C0AB");
-                  setBillBaseOutline("#F4FAFA");
+                  setBillOutline(
+                    "hover:outline-[#26C0AB] focus:outline-[#26C0AB] outline-[#F4FAFA]"
+                  );
                 }}
               />
             </div>
@@ -116,7 +119,7 @@ function App() {
               />
               <input
                 type="number"
-                className={`bg-[#F4FAFA] rounded-md text-[#00494D] px-3 text-right placeholder:text-[#00494D] placeholder:text-center hover:outline-[${tipOutline}] focus:outline-[${tipOutline}] outline-[${tipBaseOutline}] outline outline-1 transtion-all ease-int-out `}
+                className={`bg-[#F4FAFA] rounded-md text-[#00494D] px-3 text-right placeholder:text-[#00494D] placeholder:text-center ${tipOutline} outline outline-1 transtion-all ease-int-out `}
                 placeholder="Custom"
                 value={tip === 0 ? "" : tip}
                 onChange={(e) => {
@@ -124,13 +127,13 @@ function App() {
                 }}
                 onBlur={() => {
                   if (tip == 0) {
-                    setTipOutline("#F16E6E");
-                    setTipBaseOutline("#F16E6E");
+                    setTipOutline("outline-[#F16E6E]");
                   }
                 }}
                 onFocus={() => {
-                  setTipOutline("#26C0AB");
-                  setTipBaseOutline("#F4FAFA");
+                  setTipOutline(
+                    "hover:outline-[#26C0AB] focus:outline-[#26C0AB] outline-[#F4FAFA]"
+                  );
                 }}
               />
             </div>
@@ -152,21 +155,21 @@ function App() {
               />
               <input
                 type="number"
-                className={`peer bg-[#F4FAFA] text-right text-[18px] text-[#00494D] transition-all duration-75 h-full w-full hover:outline-[${peopleOutline}] focus:outline-[${peopleOutline}] outline-[${peopleBaseOutline}] outline outline-1 rounded-md px-3 py-1 placeholder:text-[#7F9C9F] placeholder:text-[18px]`}
+                className={`peer bg-[#F4FAFA] text-right text-[18px] text-[#00494D] transition-all duration-75 h-full w-full ${peopleOutline} outline outline-1 rounded-md px-3 py-1 placeholder:text-[#7F9C9F] placeholder:text-[18px]`}
                 placeholder="0"
                 value={people === 0 ? "" : people}
                 onChange={(e) => setPeople(e.target.value)}
                 onBlur={() => {
                   if (people == 0) {
                     setPeopleAlert("block");
-                    setPeopleOutline("#F16E6E");
-                    setPeopleBaseOutline("#F16E6E");
+                    setPeopleOutline("outline-[#F16E6E]");
                   }
                 }}
                 onFocus={() => {
                   setPeopleAlert("hidden");
-                  setPeopleOutline("#26C0AB");
-                  setPeopleBaseOutline("#F4FAFA");
+                  setPeopleOutline(
+                    "hover:outline-[#26C0AB] focus:outline-[#26C0AB] outline-[#F4FAFA]"
+                  );
                 }}
               />
             </div>
@@ -194,7 +197,11 @@ function App() {
               setTip(0);
               setTipPerPerson((0.0).toFixed(2));
               setTotalTip((0.0).toFixed(2));
-              setAlert("hidden");
+              setBillAlert("hidden");
+              setPeopleAlert("hidden");
+              setTipOutline("hover:outline-[#26C0AB] outline-[#F4FAFA]");
+              setBillOutline("hover:outline-[#26C0AB] outline-[#F4FAFA]");
+              setPeopleOutline("hover:outline-[#26C0AB] outline-[#F4FAFA]");
             }}
             value="RESET"
             disabled={bill === 0.0 && people === 0 && tip === 0}
